@@ -28,12 +28,11 @@ input {
 }
 
 .form {
-  width: 371px;
   display: flex;
   flex-direction: row;
   width: 372px;
   background: #fff;
-  gap: 16px;
+  gap: 8px;
   position: absolute;
   top: 10%;
   left: 30%;
