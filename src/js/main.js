@@ -2,67 +2,97 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-// import Cssloader from 'css-loader/dist/';
 
 const refs = {
   form: document.querySelector('.form'),
   gallery: document.querySelector('.gallery'),
+  loader: document.querySelector('.loader'),
 };
+let gallery = new SimpleLightbox('.gallery a');
 
 refs.form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
   const search = e.target.elements.search.value;
-  getImagesByType(search).then(data => data);
-  // refs.form.reset();
+  refs.loader.classList.remove('hidden');
+  getImagesByType(search)
+    .then(data => {
+      if (data.totalHits === 0) {
+        refs.gallery.innerHTML = '';
+        return showError(
+          'Sorry, there are no images matching your search query. Please try again!'
+        );
+      }
+      const markup = galleryTemplate(data.hits);
+      refs.gallery.innerHTML = markup;
+      gallery.refresh();
+    })
+    .catch(error => {
+      showError(error);
+    })
+    .finally(() => {
+      refs.loader.classList.add('hidden');
+    });
+
+  refs.form.reset();
 }
 
-function getImagesByType(q) {
+function getImagesByType(query) {
   const BASE_URL = 'https://pixabay.com/api/';
   const API_KEY = '42141224-180b0a56c10fd436e302d680a';
-  const PARAMS = 'q=${q}';
-  // &image_type=photo&orientation=horizontal&safesearch=true
-  const url = `${BASE_URL}?key=${API_KEY}&${PARAMS}`;
+  const PARAMS = new URLSearchParams({
+    key: API_KEY,
+    q: query,
+    image_type: 'photo',
+    orientation: 'horizontal',
+    safesearch: true,
+  });
 
-  return fetch(url).then(response => response.json());
+  const url = `${BASE_URL}?${PARAMS}`;
+
+  return fetch(url).then(res => res.json());
 }
 
-function imageTamplate(hits) {
+function imageTemplate(data) {
   return `<li class="gallery-card">
-        <a href="${hits.largeImageURL}"
+        <a href="${data.largeImageURL}"
           ><img
             class="gallery-image"
-            src="${hits.webformatURL}"
-            alt="${hits.tags}"
+            src="${data.webformatURL}"
+            alt="${data.tags}"
             title=""
           />
         </a>
         <div class="gallery-card-items">
           <p class="gallery-card-info">
             Likes
-            <span class="gallery-card-data">${hits.likes.value}</span>
+            <span class="gallery-card-data">${data.likes}</span>
           </p>
 
           <p class="gallery-card-info">
             Views
-            <span class="gallery-card-data">${hits.views.value}</span>
+            <span class="gallery-card-data">${data.views}</span>
           </p>
 
           <p class="gallery-card-info">
             Comments
-            <span class="gallery-card-data">${hits.comments.value}</span>
+            <span class="gallery-card-data">${data.comments}</span>
           </p>
 
           <p class="gallery-card-info">
             Downloads
-            <span class="gallery-card-data">${hits.downloads.value}</span>
+            <span class="gallery-card-data">${data.downloads}</span>
           </p>
         </div>
       </li>`;
 }
-function galleryTemplate(hits) {
-  return hits.map(imageTemplate).join('');
+function galleryTemplate(data) {
+  return data.map(imageTemplate).join('');
 }
-const markup = galleryTemplate();
-refs.gallery.innerHTML = markup;
+
+function showError(message) {
+  iziToast.error({
+    message,
+  });
+}

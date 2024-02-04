@@ -4,10 +4,14 @@
 }
 
 body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   font-family: 'Montserrat', sans-serif;
   background-color: #ffffff;
   color: #212121;
   line-height: 1.5;
+  width: 100vw;
 }
 ul,
 li {
@@ -28,12 +32,12 @@ input {
 }
 
 .form {
+  margin: 24px;
   display: flex;
   flex-direction: row;
   width: 372px;
   background: #fff;
   gap: 8px;
-  position: absolute;
   top: 10%;
   left: 30%;
 }
@@ -72,11 +76,30 @@ input {
   letter-spacing: 0.04;
   border: none;
 }
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #c12d2d;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .gallery {
   display: flex;
-  width: 1440px;
-  padding: 24px 156px;
-  margin-top: 156px;
+  width: 100%;
+  padding: 24px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
@@ -133,4 +156,7 @@ input {
   line-height: 2;
   letter-spacing: 0.04em;
   color: #2e2f42;
+}
+.hidden {
+  display: none;
 }
