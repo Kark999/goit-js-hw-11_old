@@ -2,6 +2,8 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import errorIcon from '../img/octagon.svg';
+import closeIcon from '../img/close.svg';
 
 const refs = {
   form: document.querySelector('.form'),
@@ -20,9 +22,7 @@ function onFormSubmit(e) {
     .then(data => {
       if (data.totalHits === 0) {
         refs.gallery.innerHTML = '';
-        return showError(
-          'Sorry, there are no images matching your search query. Please try again!'
-        );
+        return showError(message);
       }
       const markup = galleryTemplate(data.hits);
       refs.gallery.innerHTML = markup;
@@ -93,6 +93,24 @@ function galleryTemplate(data) {
 
 function showError(message) {
   iziToast.error({
-    message,
+    message:
+      'Sorry, there are no images matching <br/> your search query. Please try again!',
+    position: 'topRight',
+    messageColor: '#ffffff',
+    messageSize: '16px',
+    backgroundColor: '#ef4040',
+    iconColor: '#ffffff',
+    iconUrl: errorIcon,
+    timeout: 5000,
+    close: false,
+    closeOnEscape: true,
+    buttons: [
+      [
+        `<button type="button" style="background-color: transparent" ><img src=${closeIcon}></button>`,
+        function (instance, toast) {
+          instance.hide({ transitionOut: 'fadeOut' }, toast);
+        },
+      ],
+    ],
   });
 }
