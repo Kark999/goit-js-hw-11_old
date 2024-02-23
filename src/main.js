@@ -1,6 +1,7 @@
 import Swiper from 'swiper';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const donation = [
   {

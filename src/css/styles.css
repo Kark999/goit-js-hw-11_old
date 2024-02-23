@@ -61,8 +61,11 @@ p {
 }
 .emblem-of-ukraine {
 }
-.swiper {
-}
+/* .swiper {
+  width: 159px;
+  height: 292px;
+  padding-left: 40px;
+} */
 .swiper-wrapper {
 }
 .swiper-slide {
@@ -73,6 +76,7 @@ p {
 .donation-list {
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 .donation-list-name {
   display: flex;
@@ -88,5 +92,8 @@ p {
   letter-spacing: -0.04em;
   color: #fff;
 }
-.swiper-button-prev {
+.swiper-button-next {
+}
+.hidden {
+  display: none;
 }
