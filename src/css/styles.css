@@ -28,6 +28,53 @@ p {
   margin-bottom: 0;
 }
 .donation-container {
+  /* filter: brightness(0) invert(1); */
+}
+/* .donation-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 193px;
+  gap: 12px;
+  padding-top: 24px;
+  padding-left: 40px;
+  margin-bottom: 40px;
+} */
+
+/* .swiper-slide {
+  width: 159px;
+  height: 292px;
+  padding-left: 40px;
+} */
+/* .donation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: scroll;
+  height: 300px;
+  width: 100%;
+} */
+/* .donation-list-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 159px;
+} */
+/* .donation-name-number {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: #fff;
+} */
+.hidden {
+  display: none;
+}
+.donation-container {
+  padding-top: 24px;
+  padding-left: 40px;
+  padding-bottom: 20px;
   border-radius: 16px;
   width: 335px;
   height: 460px;
@@ -38,62 +85,43 @@ p {
     rgb(255, 255, 255) 100%
   );
 }
-.donation-start {
+.donations-title-wrapper {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 193px;
   gap: 12px;
-  padding-top: 24px;
-  padding-left: 40px;
+  align-items: center;
   margin-bottom: 40px;
 }
 .donations-title {
-  width: 161px;
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: -0.04em;
   color: #fff;
-  padding-top: 4px;
-  padding-bottom: 4px;
 }
 .emblem-of-ukraine {
-}
-/* .swiper {
-  width: 159px;
-  height: 292px;
-  padding-left: 40px;
-} */
-.swiper-wrapper {
-}
-.swiper-slide {
-  width: 159px;
-  height: 292px;
-  padding-left: 40px;
 }
 .donation-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: scroll;
+  height: 292px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 .donation-list-name {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 159px;
 }
 .donation-name-number {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.28571;
-  letter-spacing: -0.04em;
-  color: #fff;
 }
-.swiper-button-next {
+.donation-name-link {
 }
-.hidden {
-  display: none;
+.donation-name-logo {
+}
+.scroll-btn {
+}
+.arrow-btn {
 }
