@@ -22,7 +22,71 @@ li {
 h1,
 h2,
 h3,
+h4,
 p {
   margin-top: 0;
   margin-bottom: 0;
+}
+.donation-container {
+  border-radius: 16px;
+  width: 335px;
+  height: 460px;
+  box-shadow: 0 10px 10px 0 rgba(245, 245, 247, 0.1);
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
+}
+.donation-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 193px;
+  gap: 12px;
+  padding-top: 24px;
+  padding-left: 40px;
+  margin-bottom: 40px;
+}
+.donations-title {
+  width: 161px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.16667;
+  letter-spacing: -0.04em;
+  color: #fff;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.emblem-of-ukraine {
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+  width: 159px;
+  height: 292px;
+  padding-left: 40px;
+}
+.donation-list {
+  display: flex;
+  flex-direction: column;
+}
+.donation-list-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 159px;
+}
+.donation-name-number {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.swiper-button-prev {
 }

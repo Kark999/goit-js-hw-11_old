@@ -1,8 +1,8 @@
 import Swiper from 'swiper';
-import { register } from 'swiper/element/bundle';
-register();
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 
-[
+const donation = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
@@ -50,10 +50,45 @@ register();
     img: './img/united24.png',
   },
 ];
+// const refs = {
+//   donatList: document.querySelector('.donation-list'),
+//   swiper: document.querySelector('.swiper').swiper,
+// };
+
+// function renderDonations() {
+//   const donationListElement = document.querySelector('.donation-list');
+//   donationListElement.innerHTML = donationListTemplate(donation);
+// }
 
 const swiper = new Swiper('.swiper', {
-  width: 159,
-  height: 292,
+  direction: 'vertical',
+  slidesPerView: 1,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  // width: 159,
+  // height: 292,
 });
 
-function name(params) {}
+// export function donationTemplate(donation) {
+//   return `<li class="donation-list-name">
+//                 <p class="donation-name-number">01</p>
+//                 <a
+//                   class="donation-name-link"
+//                   href="${donation.url}"
+//                   target="_blank"
+//                   ><img
+//                     class="donation-name-logo"
+//                     src="${donation.img}"
+//                     alt="Save the Children"
+//                   />
+//                 </a>
+//               </li>`;
+// }
+// export function donationListTemplate(donation) {
+//   return data.map(donationTemplate).join('');
+// }
+
+// const markup = render.donationListTemplate(donation);
+// refs.donatList.insertAdjacentHTML('beforeend', markup);
