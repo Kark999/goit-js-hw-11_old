@@ -56,17 +56,6 @@ const donation = [
 //   donationListElement.innerHTML = donationListTemplate(donation);
 // }
 
-const swiper = new Swiper('.swiper', {
-  direction: 'vertical',
-  slidesPerView: 1,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  // width: 159,
-  // height: 292,
-});
-
 // export function donationTemplate(donation) {
 //   return `<li class="donation-list-name">
 //                 <p class="donation-name-number">01</p>
