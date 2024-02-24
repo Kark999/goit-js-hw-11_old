@@ -27,50 +27,7 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
-.donation-container {
-  /* filter: brightness(0) invert(1); */
-}
-/* .donation-start {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 193px;
-  gap: 12px;
-  padding-top: 24px;
-  padding-left: 40px;
-  margin-bottom: 40px;
-} */
 
-/* .swiper-slide {
-  width: 159px;
-  height: 292px;
-  padding-left: 40px;
-} */
-/* .donation-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  overflow: scroll;
-  height: 300px;
-  width: 100%;
-} */
-/* .donation-list-name {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 159px;
-} */
-/* .donation-name-number {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.28571;
-  letter-spacing: -0.04em;
-  color: #fff;
-} */
-.hidden {
-  display: none;
-}
 .donation-container {
   padding-top: 24px;
   padding-left: 40px;
@@ -130,6 +87,11 @@ p {
   filter: brightness(0) invert(1);
 }
 .scroll-btn {
+  border-radius: 50%;
+  padding: 8px;
+  background-color: #fff;
+  border: none;
+  width: fit-content;
 }
 .arrow-btn {
 }

@@ -22,7 +22,7 @@ const donation = [
   {
     title: 'Action against hunger',
     url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
-    img: './img/action-against-hunger.png',
+    img: './img/act-against-hunger.png',
   },
   {
     title: 'Serhiy Prytula Charity Foundation',
@@ -46,34 +46,37 @@ const donation = [
     img: './img/united24.png',
   },
 ];
-// const refs = {
-//   donatList: document.querySelector('.donation-list'),
-//   swiper: document.querySelector('.swiper').swiper,
-// };
 
-// function renderDonations() {
-//   const donationListElement = document.querySelector('.donation-list');
-//   donationListElement.innerHTML = donationListTemplate(donation);
-// }
+const donationListElement = document.querySelector('.donation-list');
 
-// export function donationTemplate(donation) {
-//   return `<li class="donation-list-name">
-//                 <p class="donation-name-number">01</p>
-//                 <a
-//                   class="donation-name-link"
-//                   href="${donation.url}"
-//                   target="_blank"
-//                   ><img
-//                     class="donation-name-logo"
-//                     src="${donation.img}"
-//                     alt="Save the Children"
-//                   />
-//                 </a>
-//               </li>`;
-// }
-// export function donationListTemplate(donation) {
-//   return data.map(donationTemplate).join('');
-// }
+function donationTemplate(donation, index) {
+  function pad(num) {
+    return num < 10 ? '0' + num : num;
+  }
+  // const index = donation.findIndex(item => item === donation);
+  return `<li class="donation-list-name">
+                <p class="donation-name-number">${pad(index + 1)}</p>
+                <a
+                  class="donation-name-link"
+                  href="${donation.url}"
+                  target="_blank"
+                  ><img
+                    class="donation-name-logo"
+                    src="${donation.img}"
+                    alt="${donation.title}"
+                  />
+                </a>
+              </li>`;
+}
 
-// const markup = render.donationListTemplate(donation);
-// refs.donatList.insertAdjacentHTML('beforeend', markup);
+function donationListTemplate(data) {
+  return data
+    .map((donation, index) => donationTemplate(donation, index))
+    .join('');
+  // return data.map(donationTemplate).join('');
+}
+function renderDonations() {
+  const markup = donationListTemplate(donation);
+  donationListElement.insertAdjacentHTML('beforeend', markup);
+}
+renderDonations();
