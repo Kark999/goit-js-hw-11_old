@@ -1,32 +1,14 @@
-import{S as c,i as f}from"./assets/vendor-46aac873.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const l of t.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&a(l)}).observe(document,{childList:!0,subtree:!0});function o(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function a(e){if(e.ep)return;e.ep=!0;const t=o(e);fetch(e.href,t)}})();const u="/goit-js-hw-11/assets/octagon-9a0a5cbd.svg",d="/goit-js-hw-11/assets/close-22ff606a.svg",n={form:document.querySelector(".form"),gallery:document.querySelector(".gallery"),loader:document.querySelector(".loader")};let g=new c(".gallery a");n.form.addEventListener("submit",m);function m(r){r.preventDefault();const s=r.target.elements.search.value;n.loader.classList.remove("hidden"),p(s).then(o=>{if(o.totalHits===0)return n.gallery.innerHTML="",i(message);const a=h(o.hits);n.gallery.innerHTML=a,g.refresh()}).catch(o=>{i()}).finally(()=>{n.loader.classList.add("hidden")}),n.form.reset()}function p(r){const s="https://pixabay.com/api/",o="42141224-180b0a56c10fd436e302d680a",a=new URLSearchParams({key:o,q:r,image_type:"photo",orientation:"horizontal",safesearch:!0}),e=`${s}?${a}`;return fetch(e).then(t=>t.json())}function y(r){return`<li class="gallery-card">
-        <a href="${r.largeImageURL}"
-          ><img
-            class="gallery-image"
-            src="${r.webformatURL}"
-            alt="${r.tags}"
-            title=""
-          />
-        </a>
-        <div class="gallery-card-items">
-          <p class="gallery-card-info">
-            Likes
-            <span class="gallery-card-data">${r.likes}</span>
-          </p>
-
-          <p class="gallery-card-info">
-            Views
-            <span class="gallery-card-data">${r.views}</span>
-          </p>
-
-          <p class="gallery-card-info">
-            Comments
-            <span class="gallery-card-data">${r.comments}</span>
-          </p>
-
-          <p class="gallery-card-info">
-            Downloads
-            <span class="gallery-card-data">${r.downloads}</span>
-          </p>
-        </div>
-      </li>`}function h(r){return r.map(y).join("")}function i(r){f.error({message:"Sorry, there are no images matching <br/> your search query. Please try again!",position:"topRight",messageColor:"#ffffff",messageSize:"16px",backgroundColor:"#ef4040",iconColor:"#ffffff",iconUrl:u,timeout:5e3,close:!1,closeOnEscape:!0,buttons:[[`<button type="button" style="background-color: transparent" ><img src=${d}></button>`,function(s,o){s.hide({transitionOut:"fadeOut"},o)}]]})}
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const l of t.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&r(l)}).observe(document,{childList:!0,subtree:!0});function o(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function r(e){if(e.ep)return;e.ep=!0;const t=o(e);fetch(e.href,t)}})();const s=[{title:"Save the Children",url:"https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis",img:"./img/save-the-children.png"},{title:"Project HOPE",url:"https://www.projecthope.org/country/ukraine/",img:"./img/project-hope.png"},{title:"International Medical Corps",url:"https://internationalmedicalcorps.org/country/ukraine/",img:"./img/int-med-corps.png"},{title:"RAZOM",url:"https://www.razomforukraine.org/",img:"./img/razom.png"},{title:"Action against hunger",url:"https://www.actionagainsthunger.org/location/europe/ukraine/",img:"./img/act-against-hunger.png"},{title:"Serhiy Prytula Charity Foundation",url:"https://prytulafoundation.org/en",img:"./img/prytula.png"},{title:"Medicins Sans Frontieres",url:"https://www.msf.org/ukraine",img:"./img/msf.png"},{title:"World vision",url:"https://www.wvi.org/emergencies/ukraine",img:"./img/world-vision.png"},{title:"UNITED24",url:"https://u24.gov.ua/uk",img:"./img/united24.png"}],a=document.querySelector(".donation-list");function u(n,i){function o(r){return r<10?"0"+r:r}return`<li class="donation-list-name">
+                <p class="donation-name-number">${o(i+1)}</p>
+                <a
+                  class="donation-name-link"
+                  href="${n.url}"
+                  target="_blank"
+                  ><img
+                    class="donation-name-logo"
+                    src="${n.img}"
+                    alt="${n.title}"
+                  />
+                </a>
+              </li>`}function c(n){return n.map((i,o)=>u(i,o)).join("")}function g(){const n=c(s);a.insertAdjacentHTML("beforeend",n)}g();
 //# sourceMappingURL=commonHelpers.js.map
