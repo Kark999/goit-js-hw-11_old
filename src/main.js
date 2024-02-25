@@ -48,12 +48,16 @@ const donation = [
 ];
 
 const donationListElement = document.querySelector('.donation-list');
+const scrollButton = document.querySelector('.scroll-btn');
+const arrowIcon = document.querySelector('.arrow-btn');
+
+let startIndex = 0; // Початковий індекс першої організації для відображення
+let isForward = true; // Флаг для визначення напрямку прокрутки
 
 function donationTemplate(donation, index) {
   function pad(num) {
     return num < 10 ? '0' + num : num;
   }
-  // const index = donation.findIndex(item => item === donation);
   return `<li class="donation-list-name">
                 <p class="donation-name-number">${pad(index + 1)}</p>
                 <a
@@ -71,12 +75,41 @@ function donationTemplate(donation, index) {
 
 function donationListTemplate(data) {
   return data
-    .map((donation, index) => donationTemplate(donation, index))
+    .map((donation, index) => donationTemplate(donation, index + startIndex))
     .join('');
-  // return data.map(donationTemplate).join('');
 }
+
 function renderDonations() {
-  const markup = donationListTemplate(donation);
-  donationListElement.insertAdjacentHTML('beforeend', markup);
+  const visibleDonations = donation.slice(startIndex, startIndex + 6);
+  const markup = donationListTemplate(visibleDonations);
+  donationListElement.innerHTML = markup;
 }
+
+function toggleScrollDirection() {
+  isForward = !isForward;
+  arrowIcon.style.transform = isForward ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+
+function scrollDonations() {
+  if (isForward) {
+    if (startIndex + 6 < donation.length) {
+      startIndex += 3;
+    } else {
+      startIndex = 0;
+    }
+  } else {
+    if (startIndex - 3 >= 0) {
+      startIndex -= 3;
+    } else {
+      startIndex = donation.length - 6;
+    }
+  }
+  renderDonations();
+}
+
+scrollButton.addEventListener('click', () => {
+  scrollDonations();
+  toggleScrollDirection();
+});
+
 renderDonations();
