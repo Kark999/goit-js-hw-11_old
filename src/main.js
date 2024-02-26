@@ -1,3 +1,21 @@
+import * as basicLightbox from 'basiclightbox';
+
+function menuTemplate() {
+  return `<li class="donation-list-name">
+                <p class="donation-name-number">${pad(index + 1)}</p>
+                <a
+                  class="donation-name-link"
+                  href="${donation.url}"
+                  target="_blank"
+                  ><img
+                    class="donation-name-logo"
+                    src="${donation.img}"
+                    alt="${donation.title}"
+                  />
+                </a>
+              </li>`;
+}
+
 // const donation = [
 //   {
 //     title: 'Save the Children',
