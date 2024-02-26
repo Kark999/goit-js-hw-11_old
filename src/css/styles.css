@@ -94,7 +94,7 @@ p {
   width: fit-content;
   align-self: center;
 } */
-.my-lightbox {
+.mob-menu-lightbox {
   top: 0;
   left: 0;
   right: 0;
@@ -141,8 +141,11 @@ p {
   width: fit-content;
 }
 .menu-log-out {
-  background-color: var(--NAVY-BLUE, #2e2f42);
-  padding: 72px 0;
+  background: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    rgb(79, 46, 232) 18.02733987569809%,
+    rgb(255, 255, 255) 100%
+  );
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
